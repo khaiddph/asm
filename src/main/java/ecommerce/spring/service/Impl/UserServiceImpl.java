@@ -58,12 +58,14 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserResponse create(SignUpRequest request) {
+
     boolean ex=userRepository.existsByUsernameAndEmail(request.getUsername(), request.getEmail());
     if (ex){
       throw new RuntimeException("exists name and email");
     }
     ModelMapper mapper=new ModelMapper();
     User user=mapper.map(request,User.class);
+    user.setPassword(passwordEncoder.encode(request.getPassword()));
     userRepository.save(user);
     return new ModelMapper().map(user,UserResponse.class);
   }

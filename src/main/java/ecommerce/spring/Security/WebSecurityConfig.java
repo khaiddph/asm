@@ -32,8 +32,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     return authenticationManager();
   }
   @Bean
-  public PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder();
-  }
+  public PasswordEncoder passwordEncoder(){return new BCryptPasswordEncoder(); }
 
   @Override
   public void configure(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
@@ -50,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.cors().and().csrf().disable()
         .exceptionHandling().authenticationEntryPoint(authEntryPointJwt).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-        .authorizeRequests().antMatchers("api/auth/**").permitAll()
+        .authorizeRequests().antMatchers("/api/auth/**").permitAll()
         .anyRequest().authenticated();
 
   }
