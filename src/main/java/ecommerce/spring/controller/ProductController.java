@@ -43,16 +43,6 @@ public class ProductController {
     public Product createProductToCategory(@PathVariable Long category_id, @RequestBody Product product) {
         return this.productServiceImpl.saveProduct(category_id, product);
     }
-    // @PostMapping("/category/{category_id}/product")
-    // @ResponseStatus(HttpStatus.CREATED)
-    // public Product createProductToCategory(@PathVariable Long category_id,
-    // @RequestParam String title,
-    // @RequestParam MultipartFile image, @RequestParam Float price, @RequestParam
-    // int quantity)
-    // throws IOException {
-    // return this.productServiceImpl.saveProduct(category_id, title, image, price,
-    // quantity);
-    // }
 
     @PutMapping("/category/{category_id}/product/{product_id}")
     public Product updateProductToCategory(@PathVariable Long category_id, @PathVariable Long product_id,

@@ -15,11 +15,12 @@ public class OrderDetail {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
+  @Column(name = "order_id")
   Long orderId;
   int quantity;
   String productName;
   BigDecimal prince;
   @Column(name = "status")
   @Enumerated(EnumType.STRING)
-  OderEnum oderEnum = OderEnum.COMPLETED;
+  OderEnum status = OderEnum.COMPLETED;
 }

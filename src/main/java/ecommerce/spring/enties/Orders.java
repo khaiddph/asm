@@ -17,6 +17,7 @@ public class Orders {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   Long id;
+  @Column(name = "user_id")
   Long userId;
   BigDecimal totalPrice;
   Date createdDate;
